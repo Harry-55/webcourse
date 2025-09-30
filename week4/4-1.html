@@ -32,15 +32,15 @@
         }
         else if(2025 - BirthYear <= 0 || isNaN(BirthYear)){
             alert("Your input is incorrect")
-            document.write("<h1>Hello, <span class = 'Name'>IU</span>！</h1>")
+            document.write("<h1>Hello, <span class = 'Name'>" + Name + "</span>！</h1>")
             document.write("<h1>Your age is a mystery!</h1>")
-            console.log("Hello IU！")
+            console.log("Hello " + Name + "！")
             console.log("Your input is incorrect!")
         }else{
             document.write("<h1>Hello, <span class = 'Name'>" + Name + "</span>！</h1>")
-            document.write("<h1>You are <span class = 'Years'>" + Year + "</span> year old!</h1>")
+            document.write("<h1>You are <span class = 'Years'>" + Year + "</span> years old!</h1>")
             console.log("Hello " + Name + " ！")
-            console.log("You are " + Year + " year old!")
+            console.log("You are " + Year + " years old!")
         }
     </script>
 </head>
