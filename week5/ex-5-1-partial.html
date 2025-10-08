@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Basic DOM and function</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        input, select, button {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 120%;
+            width: 200px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .result {
+            font-size: 120%;     
+            padding: 10px;
+            border: 3px solid #ddd;
+            width: 200px;
+            text-align: center;
+            box-sizing: border-box;
+         }
+
+	</style>
+</head>
+
+<body>
+    <h3>Simple Calculator</h3>
+    <div class="calculator">
+        <input type="number" placeholder = "Input first number" id = "FirstNumber">
+        <select name="option" id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" placeholder = "Input second number" id = "SecondNumber">
+        <button id = "btn">Calculate</button>
+    </div>
+
+    <div id="result" class="result">Results
+    </div>
+
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", operator, false);
+        function operator(){
+            let x = document.getElementById("FirstNumber").value;
+            let y = document.getElementById("SecondNumber").value;
+            let x_value = parseFloat(x), y_value = parseFloat(y);
+            let option = document.getElementById("operator").value;
+            let result = document.getElementById("result");
+
+            switch (option){
+                case "+" :
+                    result.innerHTML = x_value + y_value;
+                    break;
+                case "-" :
+                    result.innerHTML = x_value - y_value;
+                    break;
+                case "*" :
+                    result.innerHTML = x_value * y_value;
+                    break;
+                case "/" :
+                    if(y_value == "0") result.innerHTML = "Dividing by 0 is illegal";
+                    else result.innerHTML = x_value / y_value;
+            
+            }
+        }
+    </script>
+
+</body>
+
+</html>
