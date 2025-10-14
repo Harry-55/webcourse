@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- Array Exercise-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>出包理由產生器</title>
+    <style>
+        @import url('https://fonts.googleapis.com/earlyaccess/cwtexkai.css');
+        body{
+            font-family: Cwtexkai;
+            text-align: center;
+        }
+        .title{
+            color: #2C3033;
+            text-align: center;
+        }
+
+        .adjnoun {
+            color: #7392B7;
+        }
+
+        .verb {
+            color: #AD343E;
+            font-size: 150%;
+        }
+
+        img {
+            height: 300px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        const adjAry = ["客戶那邊的", "我們的", "負責談需求的", "負責這個部分的", "直到上線前一天", "(雙手一攤)"];
+        const nounAry = ["專案經理", "主管", "工程師", "設計師", "外包", "User", "聯絡窗口"];
+        const VerbAry = ["當初沒有講清楚", "一直換", "說他肚子不舒服", "擺爛不想做了", "突然始放長假", "去生小孩了", "離職了", "都沒甚麼 sense", "都沒有跟我講", "以為這些不用做", "一直在狀況外", "做事拖拖拉拉", "還搞不清楚狀況", "Quality 有問題", "東西一直改", "在整我", "突然就沒來了"];
+        const imgAry = ["Cat.jpg", "Boy.jpg", "Ohtani.jpg", "Harry.jpg", "Jacky.jpg"];
+        function getRandomItem(arr){
+            return arr[Math.floor(Math.random() * arr.length)]
+        }
+        function start(){
+            const line1 = `<span class="adjnoun">${getRandomItem(adjAry)}${getRandomItem(nounAry)}</span>`;
+            const line2 = `<span class="verb">${getRandomItem(VerbAry)}</span>`;
+            const imgFile = getRandomItem(imgAry);
+            let display = document.getElementById("display")
+            display.innerHTML = `<h1 class="adjnoun">${line1}</h1>
+                                    <h1 class="verb">${line2}</h1>
+                                    <img src="${imgFile}" onclick="location.reload()">`;
+        }
+        window.onload = start;
+        start();
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1 class="title">專案失敗了，是因為...</h1>
+        <div id="display"></div>        
+    </div>
+</body>
+
+</html>
